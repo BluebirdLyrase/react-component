@@ -1,35 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const StyledGridListContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  padding: 10px;
-
-  /* Add more media queries for larger screens if needed */
-`;
-
-const GridItem = styled.div`
-  background-color: #f0f0f0;
-  padding: 15px;
-  border-radius: 5px;
-  text-align: center;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const GridItemTitle = styled.h3`
-  margin-top: 10px;
-`;
-
-const GridItemIcon = styled.div`
-  font-size: 24px;
-  margin-bottom: 10px;
-`;
+import {
+  StyledGridListContainer,
+  GridItem,
+  GridItemIcon,
+  GridItemTitle,
+} from './style';
 
 export const GridListDemo = () => {
   const items = [
@@ -39,6 +14,12 @@ export const GridListDemo = () => {
     { title: 'Item 4', icon: '🎨' },
     { title: 'Item 5', icon: '🎉' },
     { title: 'Item 6', icon: '🌟' },
+    { title: 'Item 7', icon: '🚀' },
+    { title: 'Item 8', icon: '📚' },
+    { title: 'Item 9', icon: '💻' },
+    { title: 'Item 10', icon: '🎨' },
+    { title: 'Item 11', icon: '🎉' },
+    { title: 'Item 12', icon: '🌟' },
   ];
 
   return (
@@ -55,5 +36,3 @@ export const GridListDemo = () => {
     </div>
   );
 };
-
-export default GridList;
