@@ -1,12 +1,13 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const RadioButton = ({ value, name }) => {
+export const RadioButton = ({ value, name, ...props }) => {
   return (
     <RadioInput
       className={`color-${value}`}
       type='radio'
       name={name}
       value={value}
+      {...props}
     />
   );
 };
@@ -23,28 +24,28 @@ const RadioInput = styled.input`
     inset hsla(0, 0%, 0%, 0.5) 0 0 0 1px;
   background-repeat: no-repeat;
   transition: background-position 0.15s cubic-bezier(0.8, 0, 1, 1),
-    transform 0.25s cubic-bezier(0.8, 0, 1, 1);
+    transform 0.25s cubic-bezier(0.8, 0, 1, 1); //* this is for moving horizontal between last check and current check location
   outline: none;
-
   background-image: radial-gradient(
-    rgb(9, 255, 0) 0%,
-    rgb(255, 255, 255) 25%,
-    rgb(9, 255, 0) 50%,
-    hsla(50, 100%, 30%, 0) 65%
+    ${({ color }) => `${color} 0%,
+    ${color} 25%,
+    ${color} 50%,
+    hsla(50, 100%, 30%, 0) 65%`}
   );
-
-  &:checked {
-    box-shadow: rgb(9, 255, 0) 0 1px 1px, inset rgb(9, 255, 0) 0 0 0 1px;
-  }
-
-  &:checked {
-    transition: background-position 0.2s 0.15s cubic-bezier(0, 0, 0.2, 1),
-      transform 0.25s cubic-bezier(0, 0, 0.2, 1);
-  }
 
   &:active {
     transform: scale(1.5);
     transition: transform 0.1s cubic-bezier(0, 0, 0.2, 1);
+  } //* this is for bump up anmation on click checked
+
+  &:checked {
+    transition: background-position 0.2s 0.15s cubic-bezier(0, 0, 0.2, 1),
+      transform 0.25s cubic-bezier(0, 0, 0.2, 1); //* this is for moving in checked
+  } //TODO change animation to appear instead of moving
+
+  &:checked {
+    box-shadow: ${({ color }) =>
+      `${color} 0 1px 1px, inset ${color} 0 0 0 1px`};
   }
 
   &:not(:checked),

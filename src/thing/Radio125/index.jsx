@@ -30,11 +30,31 @@ const RadioGroup = ({ name, title }) => {
       <div style={{ marginTop: '20px' }} />
       <RadioContainer>
         <MinMaxPoint>1</MinMaxPoint>
-        <RadioButton value={1} name={name}></RadioButton>
-        <RadioButton value={2} name={name}></RadioButton>
-        <RadioButton value={3} name={name}></RadioButton>
-        <RadioButton value={4} name={name}></RadioButton>
-        <RadioButton value={5} name={name}></RadioButton>
+        <RadioButton
+          value={1}
+          name={name}
+          color={`rgb(9, 255, 0)`}
+        ></RadioButton>
+        <RadioButton
+          value={2}
+          name={name}
+          color={`rgb(179, 255, 0)`}
+        ></RadioButton>
+        <RadioButton
+          value={3}
+          name={name}
+          color={`rgb(230, 226, 35)`}
+        ></RadioButton>
+        <RadioButton
+          value={4}
+          name={name}
+          color={`rgb(230, 168, 35)`}
+        ></RadioButton>
+        <RadioButton
+          value={5}
+          name={name}
+          color={`rgb(230, 90, 35)`}
+        ></RadioButton>
         <MinMaxPoint>5</MinMaxPoint>
       </RadioContainer>
     </>
