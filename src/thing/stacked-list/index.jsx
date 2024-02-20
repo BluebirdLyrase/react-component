@@ -1,47 +1,49 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const StyledStackedList = styled.div`
-  width: 300px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
-`;
-
-const ListItem = styled.div`
-  background-color: #f0f0f0;
-  margin-bottom: 5px;
-  padding: 8px;
-  border-radius: 3px;
-`;
-
-const StackedList = ({ items = [] }) => {
-  return (
-    <StyledStackedList>
-      {items.map((item) => (
-        <ListItem key={item.id}>
-          <strong>{item.text}</strong>
-          <p>Date: {item.date}</p>
-          <p>ID: {item.id}</p>
-        </ListItem>
-      ))}
-    </StyledStackedList>
-  );
-};
+import {
+  ButtonContainer,
+  ItemDetail,
+  ItemTitle,
+  ListItem,
+  StackedListContainer,
+} from './style';
 
 export const DemoStackedList = () => {
   const items = [
-    { text: 'Item 1', date: '2024-02-19', id: 1 },
-    { text: 'Item 2', date: '2024-02-20', id: 2 },
-    { text: 'Item 3', date: '2024-02-21', id: 3 },
+    {
+      name: 'นางสาวเจน โดว (เจน)',
+      section: '123 Main St',
+      department: '555-1234',
+    },
+    {
+      name: 'นายจอน โดว',
+      section: '456 Oak St',
+      department: '555-5678',
+    },
+    // Add more items as needed
   ];
 
   return (
     <div>
       <h1>Stacked List Example</h1>
-      <StackedList items={items} />
+      <StackedListContainer>
+        {items.map((item, index) => (
+          <ListItem
+            key={index}
+            onClick={() => onItemClick && onItemClick(item)}
+          >
+            <div style={{ display: 'flex' }}>
+              <div style={{ width: '80%' }}>
+                <ItemTitle>{item.name}</ItemTitle>
+                <ItemDetail>ฝ่ายงาน : {item.section}</ItemDetail>
+                <ItemDetail>แผนก : {item.department}</ItemDetail>
+              </div>
+              <ButtonContainer>
+                <button>TEST</button>
+              </ButtonContainer>
+            </div>
+          </ListItem>
+        ))}
+      </StackedListContainer>
     </div>
   );
 };
-
-export default StackedList;
